@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9288770962100185"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="온라인에서 쉽게 할 수 있는 무료 타자 연습 웹사이트! 타자 속도 향상, 정확도 테스트, 실시간 결과 분석까지 한 번에 경험하세요.">
+  <meta name="naver-site-verification" content="b366dbb6459aafa1c91f8f26b783724b86199d71" />
+  <title>온라인 타자 연습 | 무료 한글 타자 게임</title>
+  <style>
+    body {
+      background-color: #f0f0f0;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 500px;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-top: 40px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 26px;
+      color: #4CAF50;
+      margin-bottom: 20px;
+    }
+
+    .text-box {
+      font-size: 18px;
+      color: #000;
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 2px solid #4CAF50;
+      border-radius: 5px;
+      min-height: 50px;
+      background-color: #f4f4f4;
+      line-height: 28px;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+    }
+
+    .input-box {
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      border: 2px solid #4CAF50;
+      border-radius: 5px;
+      background-color: #f4f4f4;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .score {
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .score span {
+      font-weight: bold;
+    }
+
+    .start-btn, .reset-btn {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .start-btn {
+      background-color: #4CAF50;
+      color: #fff;
+    }
+
+    .start-btn:hover {
+      background-color: #45a049;
+    }
+
+    .reset-btn {
+      background-color: #f44336;
+      color: #fff;
+    }
+
+    .reset-btn:hover {
+      background-color: #e53935;
+    }
+
+    .adsense {
+      width: 100%;
+      max-width: 500px;
+      margin: 10px auto;
+      text-align: center;
+    }
+
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 22px;
+      }
+
+      .text-box, .input-box {
+        font-size: 16px;
+      }
+
+      .score {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .score span {
+        margin-bottom: 5px;
+      }
+
+      .start-btn, .reset-btn {
+        width: 100%;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>한글 타자 연습</h1>
+    <div class="text-box" id="text-box">타자 연습을 시작하려면 아래 버튼을 눌러주세요.</div>
+    <input type="text" id="input-box" class="input-box" placeholder="여기에 타이핑하세요..." disabled>
+    <div class="score">
+      <span>정확도: <span id="accuracy">0%</span></span>
+      <span>타자 속도: <span id="speed">0 CPM</span></span>
+    </div>
+    <button class="start-btn" id="start-btn">게임 시작</button>
+    <button class="reset-btn" id="reset-btn" style="display: none;">다시 시작</button>
+  </div>
+
+  <!-- Google AdSense 영역 -->
+  <div class="adsense">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9288770962100185"
+            crossorigin="anonymous"></script>
+        <!-- notepad -->
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-9288770962100185"
+            data-ad-slot="6399153707"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+  </div>
+
+  <script>
+    const phrases = [
+    "안녕하세요, 타자 연습을 시작하세요!",
+      "타자 속도와 정확도를 높이는 것이 목표입니다.",
+      "한컴 타자연습처럼 쉽고 재미있게 연습해 보세요.",
+      "연습을 계속 하면 더 빨리 타이핑 할 수 있습니다.",
+      "정확도와 속도를 동시에 키워보세요.",
+      "타자 연습은 꾸준함이 중요합니다.",
+      "빠르게 타이핑하려면 손가락의 위치가 중요합니다.",
+      "타자 연습을 통해 키보드 사용 능력을 향상시킬 수 있습니다.",
+      "긴 글을 빠르게 입력하는 것이 목표입니다.",
+      "반복적인 연습을 통해 실력이 향상됩니다.",
+      "연습을 통해 더욱 빠르고 정확하게 타자할 수 있습니다.",
+      "매일 조금씩 타자 연습을 하면 큰 차이를 느낄 수 있습니다.",
+      "타자 실력을 키우는 것은 시간이 걸리지만 보람이 있습니다.",
+      "빠르고 정확한 타자는 많은 직장에서 요구되는 능력입니다.",
+      "타자 속도를 높이려면 손목을 유연하게 사용하세요.",
+      "타자 속도가 빨라지면 업무 효율이 크게 향상됩니다.",
+      "꾸준히 연습하면 어느새 빠르고 정확한 타자 실력을 갖출 수 있습니다.",
+      "타자 연습은 계속해서 해야 실력이 늘어요.",
+      "타자를 잘 치는 사람은 좋은 글 작성자입니다.",
+      "정확도 100%를 목표로 하세요.",
+      "타자 연습을 통해 단어와 문장을 더 빨리 입력할 수 있습니다.",
+      "타자 속도는 꾸준히 노력하면 자연스럽게 향상됩니다.",
+      "게임처럼 재미있게 타자 연습을 할 수 있습니다.",
+      "손가락에 힘을 주지 않고 가볍게 타이핑하는 것이 좋습니다.",
+      "정확한 타자 연습이 중요합니다.",
+      "타자 속도와 정확도를 동시에 높이는 연습을 하세요.",
+      "타자 연습을 잘 하면 컴퓨터 사용이 훨씬 더 빨라집니다.",
+      "타자 연습은 시간을 투자할 가치가 있는 일입니다.",
+      "타자 연습을 통해 빠르고 정확한 입력을 할 수 있습니다.",
+      "키보드 타자 연습은 중요한 스킬 중 하나입니다.",
+      "타자 속도가 빨라지면 더 많은 일을 할 수 있습니다.",
+      "타자 연습을 하면서 글쓰기 능력도 향상시킬 수 있습니다.",
+      "정확한 타자 실력을 갖추면 자신감이 생깁니다.",
+      "타자 연습은 중요한 직업 스킬 중 하나입니다.",
+      "타자 속도와 정확도를 동시에 키우세요.",
+      "매일 조금씩 타자 연습을 해보세요.",
+      "타자 연습을 통해 일상에서 더 빠르게 작업을 할 수 있습니다.",
+      "타자 실력은 꾸준한 연습을 통해 향상됩니다.",
+      "정확하고 빠른 타자는 많은 직장에서 필요로 합니다.",
+      "타자 연습을 통해 손가락의 민첩성을 향상시킬 수 있습니다.",
+      "타자 연습을 하면 문서 작성이 훨씬 수월해집니다.",
+      "손가락의 위치가 중요합니다. 올바르게 타이핑하세요.",
+      "타자 연습을 하면서 자신감을 얻을 수 있습니다.",
+      "타자 속도가 빨라지면 업무에 효율성이 커집니다.",
+      "자주 타자 연습을 하면 자연스럽게 실력이 늘어요.",
+      "키보드를 잘 다루는 사람은 효율적으로 작업할 수 있습니다.",
+      "타자 속도와 정확도는 시간이 지나면 늘게 됩니다.",
+      "타자 연습을 통해 많은 시간을 절약할 수 있습니다.",
+      "빠르고 정확한 타자는 많은 직장에서 요구되는 능력입니다.",
+      "타자 연습을 통해 더 많은 정보를 입력할 수 있습니다.",
+      "타자 실력을 향상시키면 업무가 쉬워집니다.",
+      "타자 속도와 정확도를 높이는 것이 중요합니다.",
+      "정확하게 타이핑하는 것이 중요합니다.",
+      "타자 속도를 높이기 위해 손목을 잘 움직이세요.",
+      "타자 연습을 통해 속도와 정확도를 모두 향상시킬 수 있습니다.",
+      "빠르고 정확한 타자 실력을 위해 꾸준히 연습하세요.",
+      "타자 연습을 통해 더욱 효율적인 작업을 할 수 있습니다.",
+      "정확한 타자는 타이핑 속도에 큰 영향을 미칩니다.",
+      "꾸준한 연습을 통해 타자 실력을 키울 수 있습니다.",
+      "정확하고 빠른 타자는 매우 유용한 능력입니다.",
+      "타자 연습을 통해 손목과 손가락의 피로도를 줄일 수 있습니다.",
+      "타자 속도는 반복적인 연습을 통해 향상됩니다.",
+      "빠르고 정확한 타자 실력을 위해 노력하세요.",
+      "타자 연습을 하면 컴퓨터 작업이 쉬워집니다.",
+      "타자 실력을 높이는 가장 좋은 방법은 연습입니다.",
+      "타자 속도와 정확도를 함께 향상시키는 것이 중요합니다.",
+      "타자 연습을 하면 문서 작성 속도가 빨라집니다.",
+      "타자 연습을 통해 생산성이 향상됩니다.",
+      "매일 조금씩 타자 연습을 하는 것이 중요합니다.",
+      "정확한 타자 연습을 통해 빠른 속도로 문서를 작성할 수 있습니다.",
+      "타자 실력은 꾸준한 연습을 통해 향상됩니다.",
+      "타자 연습을 통해 타이핑 속도를 빠르게 향상시킬 수 있습니다.",
+      "타자 연습을 통해 작업 속도를 높일 수 있습니다.",
+      "정확하게 타자하는 것은 중요한 능력입니다.",
+      "타자 연습을 통해 더욱 빠르고 정확하게 타이핑할 수 있습니다.",
+      "타자 연습을 통해 손가락의 민첩성을 향상시킬 수 있습니다.",
+      "타자 연습을 통해 컴퓨터 사용 능력을 향상시킬 수 있습니다.",
+      "타자 속도는 꾸준한 연습으로 빨라집니다.",
+      "타자 연습을 통해 키보드를 더 효율적으로 사용할 수 있습니다.",
+      "빠르고 정확한 타자 실력을 위해 연습하세요.",
+      "타자 속도와 정확도를 높이는 연습이 필요합니다.",
+      "정확하고 빠른 타자는 효율적인 작업을 할 수 있게 해줍니다.",
+      "타자 연습을 통해 문서 작성 속도를 향상시킬 수 있습니다.",
+      "타자 연습을 통해 타이핑 속도를 개선할 수 있습니다.",
+      "정확한 타자 연습을 통해 컴퓨터 작업을 더 빠르게 할 수 있습니다.",
+      "타자 연습을 통해 글을 더 빠르고 정확하게 작성할 수 있습니다.",
+      "정확한 타자 연습을 통해 더 효율적인 업무를 할 수 있습니다.",
+      "빠르고 정확한 타자 실력을 통해 업무 효율을 높일 수 있습니다."
+    ];
+
+    let currentPhrase = "";
+    let startTime = 0;
+    let totalKeys = 0;
+    let correctKeys = 0;
+    let typingTimer;
+    let gameStarted = false;
+
+    const textBox = document.getElementById("text-box");
+    const inputBox = document.getElementById("input-box");
+    const accuracySpan = document.getElementById("accuracy");
+    const speedSpan = document.getElementById("speed");
+    const startBtn = document.getElementById("start-btn");
+    const resetBtn = document.getElementById("reset-btn");
+
+    function getRandomPhrase() {
+      const randomIndex = Math.floor(Math.random() * phrases.length);
+      return phrases[randomIndex];
+    }
+
+    function updateScore() {
+      const accuracy = (correctKeys / totalKeys) * 100;
+      const elapsedTime = (new Date().getTime() - startTime) / 1000;
+      const speed = (totalKeys / elapsedTime) * 60;
+      accuracySpan.textContent = `${accuracy.toFixed(2)}%`;
+      speedSpan.textContent = `${speed.toFixed(2)} CPM`;
+    }
+
+    function startGame() {
+      if (gameStarted) return;
+      gameStarted = true;
+      totalKeys = 0;
+      correctKeys = 0;
+      startTime = new Date().getTime();
+      currentPhrase = getRandomPhrase();
+      textBox.textContent = currentPhrase;
+      inputBox.value = "";
+      inputBox.disabled = false;
+      inputBox.focus();
+      startBtn.style.display = "none";
+      resetBtn.style.display = "none";
+      typingTimer = setInterval(updateScore, 100);
+    }
+
+    function handleTyping() {
+      const inputValue = inputBox.value;
+      totalKeys = inputValue.length;
+      if (inputValue === currentPhrase) {
+        correctKeys = totalKeys;
+        clearInterval(typingTimer);
+        updateScore();
+        setTimeout(() => {
+          alert("타자 연습 완료!");
+          resetGame();
+        }, 500);
+      } else {
+        correctKeys = 0;
+        for (let i = 0; i < inputValue.length; i++) {
+          if (inputValue[i] === currentPhrase[i]) correctKeys++;
+        }
+      }
+    }
+
+    function resetGame() {
+      gameStarted = false;
+      inputBox.disabled = true;
+      startBtn.style.display = "inline-block";
+      resetBtn.style.display = "inline-block";
+    }
+
+    startBtn.addEventListener("click", startGame);
+    inputBox.addEventListener("input", handleTyping);
+    resetBtn.addEventListener("click", () => {
+      resetGame();
+      inputBox.value = "";
+      accuracySpan.textContent = "0%";
+      speedSpan.textContent = "0 CPM";
+    });
+  </script>
+
+</body>
+</html>
